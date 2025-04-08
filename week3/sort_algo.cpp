@@ -105,25 +105,24 @@ void flash_sort(int nums[], int n){
     }
     int m = (int)(0.45*n);
     if(m < 1) m = 1;
-
-    int* bucket_sizes = new int[m]();
     
+    int* buckets = new int[m]();
     for(int i = 0; i < n; i++){
         int b_id = getBucketId(nums, i, min, max, m);
-        bucket_sizes[b_id]++;
+        buckets[b_id]++;
     }
-
-    int* buckets = new int[m];
-    for(int i = 0; i < m; i++){
-        buckets[i] = bucket_sizes[i];
-    }
-
     for(int i = 1; i < m; i++){
         buckets[i] += buckets[i - 1];
     }
 
+    int* bucket_starts = new int[m];
+    bucket_starts[0] = 0;
+    for(int i = 1; i < m; i++){
+        bucket_starts[i] = buckets[i - 1];
+    }
+
     for(int b_id_curr = m - 2; b_id_curr >= 0; b_id_curr--){
-        for(int i = 0; i < bucket_sizes[b_id_curr]; i++){
+        for(int i = bucket_starts[b_id_curr]; i < buckets[b_id_curr]; i++){
             int b_id = getBucketId(nums, i, min, max, m);
             while(b_id != b_id_curr){
                 int idx = buckets[b_id] - 1;
@@ -133,7 +132,8 @@ void flash_sort(int nums[], int n){
             }
         }
     }
+
     insertion_sort(nums, n);
-    delete[] bucket_sizes;
+    delete[] bucket_starts;
     delete[] buckets;
 }

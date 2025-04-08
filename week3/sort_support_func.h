@@ -1,4 +1,5 @@
 void swap(int &a, int &b);
+void heapify(int nums[], int n, int i);
 void merge(int nums[], int left, int mid, int right);
 void merge_sort_recursive(int nums[], int left, int right);
 void quick_sort_recursive(int nums[], int left, int right);

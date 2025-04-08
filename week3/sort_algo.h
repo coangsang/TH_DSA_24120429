@@ -1,3 +1,6 @@
+#ifndef SORTS_H
+#define SORTS_H
+
 void bubble_sort(int nums[], int n);
 void selection_sort(int nums[], int n);
 void insertion_sort(int nums[], int n);
@@ -11,5 +14,7 @@ void shaker_sort(int nums[], int n);
 void flash_sort(int nums[], int n);
 
 extern void (*typeOfSort[])(int nums[], int n);
-extern const char* typeOfSortName[];
 extern const int nOfSort;
+extern const char* typeOfSortName[];
+
+#endif

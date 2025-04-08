@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+#include <stdio.h>
+#include <string.h>
 #include "sort_algo.h"
 
 using namespace std;
@@ -8,8 +9,8 @@ int main(int argc, char const *argv[])
 	char* type_sort = new char[50];
 	char* input_path = new char[100];
 	char* output_path = new char[100];
-
-	for(int i = 1;i<argc;i+=2){
+	
+	for(int i = 1;i<argc - 1;i+=2){
 		if(strcmp(argv[i],"-a") == 0){
 			strcpy(type_sort,argv[i+1]); 
 		}
@@ -20,7 +21,6 @@ int main(int argc, char const *argv[])
 			strcpy(output_path,argv[i+1]);
 		}
 	}
-
 	FILE* input_file = fopen(input_path,"r");
 	FILE* output_file = fopen(output_path,"w");
 

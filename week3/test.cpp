@@ -7,7 +7,7 @@ using namespace std;
 int main(){
     int dataSize[] = {10000,30000,50000,100000};
     int dataOrder[] = {0,1,2,3};
-    char* dataOrderName[] = {"Random", "Sorted", "Reverse Sorted", "Almost Sorted"};
+    const char dataOrderName[][20] = {"Random", "Sorted", "Reverse Sorted", "Almost Sorted"};
     int nOfDataSize = sizeof(dataSize)/sizeof(dataSize[0]);
     int nOfDataOrder = sizeof(dataOrder)/sizeof(dataOrder[0]);
     
@@ -34,7 +34,8 @@ int main(){
                 clock_t start = clock();
                 typeOfSort[k](numsCopy, n);
                 clock_t end = clock();
-                double timeTaken = double(end - start) / CLOCKS_PER_SEC;
+                double timeTaken = (double)(end - start) / CLOCKS_PER_SEC;
+
                 fprintf(statisticFile,"%d-%s-%f-%d\n",n,typeOfSortName[k],timeTaken,0);
             }
             delete[] numsCopy;

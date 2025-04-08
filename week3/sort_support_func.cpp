@@ -69,3 +69,7 @@ void counting_sort_for_radix(int nums[], int n, int exp, int base){
     delete[] output;
     delete[] count;
 }
+int getBucketId(int nums[], int i, int min, int max, int m){
+    float border = (float)(m -1)/(max - min);
+    return (int)((nums[i] - min)*border);
+}

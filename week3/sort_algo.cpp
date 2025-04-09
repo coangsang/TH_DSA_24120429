@@ -120,7 +120,7 @@ void merge_sort(int nums[], int n){
 }
 void quick_sort(int nums[], int n){
     int l = 0;
-    int r = n - 1;
+    int r = n-1;
     quick_sort_recursive(nums, l, r);
 }
 void counting_sort(int nums[], int n){

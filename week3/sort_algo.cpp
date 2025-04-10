@@ -16,17 +16,17 @@ void (*typeOfSort[])(int nums[], int n) = {
 };
 
 const char* typeOfSortName[] = {
-    "bubble_sort",
-    "selection_sort",
-    "insertion_sort",
-    "quick_sort",
-    "merge_sort",
-    "heap_sort",
-    "shell_sort",
-    "counting_sort",
-    "radix_sort",
-    "shaker_sort",
-    "flash_sort"
+    "bubble-sort",
+    "selection-sort",
+    "insertion-sort",
+    "quick-sort",
+    "merge-sort",
+    "heap-sort",
+    "shell-sort",
+    "counting-sort",
+    "radix-sort",
+    "shaker-sort",
+    "flash-sort"
 };
 
 void selection_sort(int nums[],int n){
@@ -44,7 +44,7 @@ void insertion_sort(int nums[], int n){
 	for(int i =1;i<n;i++){
 		int temp = nums[i];
 		int j = i;
-		while(j>0&&nums[j]<nums[j-1]){
+		while(j>0&&temp<nums[j-1]){
 			nums[j] = nums[j-1];
 			--j;
 		}

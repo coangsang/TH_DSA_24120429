@@ -3,7 +3,7 @@ void swap(int &a, int &b)
     int temp = a;
     a = b;
     b = temp;
-}
+}   
 void heapify(int nums[], int n, int i, unsigned long long &countCompare)
 {
     int largest = i;

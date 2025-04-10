@@ -38,7 +38,6 @@ void selection_sort(int nums[], int n, unsigned long long &countCompare)
             {
                 min_pos = j;
             }
-            countCompare += 2;
         }
         swap(nums[i], nums[min_pos]);
     }
@@ -49,7 +48,7 @@ void insertion_sort(int nums[], int n, unsigned long long &countCompare)
     {
         int temp = nums[i];
         int j = i;
-        while (j > (countCompare++, 0) && nums[j] < (countCompare++, nums[j - 1]))
+        while (j > (countCompare++, 0) && temp < (countCompare++, nums[j - 1]))
         {
             nums[j] = nums[j - 1];
             --j;
@@ -59,19 +58,12 @@ void insertion_sort(int nums[], int n, unsigned long long &countCompare)
 }
 void bubble_sort(int nums[], int n, unsigned long long &countCompare)
 {
-    for (int i = 0; i < (countCompare++, n - 1); i++)
-    {
-        bool swapped = false;
-        for (int j = 0; j < (countCompare++, n - i - 1); j++)
-        {
-            if (nums[j] > (countCompare++, nums[j + 1]))
-            {
-                swap(nums[j], nums[j + 1]);
-                swapped = true;
+    for(int i = 0; i < (countCompare++,n);i++){
+        for(int j = i +1; j < (countCompare++,n);j++){
+            if(nums[i]> (countCompare++,nums[j])){
+                swap(nums[i], nums[j]);
             }
         }
-        if (!(countCompare++, swapped))
-            break;
     }
 }
 

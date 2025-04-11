@@ -42,21 +42,33 @@ void merge_sort_recursive(int nums[], int left, int right){
         merge(nums,left,mid,right);
     }
 }
-
+int hoarePartition(int nums[],int l,int r){
+    int i = l-1;
+    int j = r+1;
+    int m = (l+r)/2;
+    if (nums[l] > nums[m]) swap(nums[l], nums[m]);
+    if (nums[l] > nums[r]) swap(nums[l], nums[r]);
+    if (nums[m] > nums[r]) swap(nums[m], nums[r]);
+    swap(nums[m],nums[l]);
+    int pivot = nums[l];
+    while(true){
+        do{
+            i++;
+        }while(nums[i]<pivot);
+        do{
+            j--;
+        }while(nums[j]>pivot);
+        if(i>=j){
+            return j;
+        }
+        swap(nums[i],nums[j]);
+    }
+}
 void quick_sort_recursive(int nums[], int left, int right){
 	if(left<right){
-		int pivot = nums[right];
-		int i = left -1;
-		
-		for(int j = left;j<right;j++){
-			if(nums[j]<=pivot){
-				i++;
-				swap(nums[i],nums[j]);
-			}
-		}
-		swap(nums[++i],nums[right]);
-		quick_sort_recursive(nums,left,i-1);
-		quick_sort_recursive(nums,i+1,right);
+		int p = hoarePartition(nums,left,right);
+		quick_sort_recursive(nums,left,p);
+		quick_sort_recursive(nums,p+1,right);
 	}
 }
 void counting_sort_for_radix(int nums[], int n, int exp, int base){

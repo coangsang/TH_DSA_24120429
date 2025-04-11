@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-    int dataSize[] = {10};
+    int dataSize[] = {10000,30000,50000,100000};
     int dataOrder[] = {0, 1, 2, 3};
     const char dataOrderName[][20] = {"Random", "Sorted", "Reverse Sorted", "Almost Sorted"};
     int nOfDataSize = sizeof(dataSize) / sizeof(dataSize[0]);

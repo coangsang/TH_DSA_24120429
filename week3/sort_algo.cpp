@@ -29,6 +29,8 @@ const char* typeOfSortName[] = {
     "flash-sort"
 };
 
+const int nOfSort = sizeof(typeOfSort)/sizeof(typeOfSort[0]);
+
 void selection_sort(int nums[],int n){
 	for(int i =0;i<n;i++){
 		int min_pos = i;
@@ -108,11 +110,6 @@ void heap_sort(int nums[],int n){
 		heapify(nums,i,0);
 	}
 }
-
-
-
-const int nOfSort = sizeof(typeOfSort)/sizeof(typeOfSort[0]);
-
 void merge_sort(int nums[], int n){
     int l = 0;
     int r = n -1;

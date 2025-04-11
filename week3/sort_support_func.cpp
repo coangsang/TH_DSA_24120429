@@ -44,6 +44,10 @@ void merge_sort_recursive(int nums[], int left, int right){
 }
 int partition(int nums[], int left, int right){
     int pi = left + (right - left)/2;
+    
+    swap(nums[pi],nums[right]);
+    pi = right;
+
     int i = left, j = left-1;
 
     swap(nums[pi],nums[right]);
@@ -55,15 +59,14 @@ int partition(int nums[], int left, int right){
             swap(nums[i],nums[j]);
         }
     }
-    swap(nums[j+1],nums[pi]);
     return j+1;
 }
 void quick_sort_recursive(int nums[], int left, int right){
-    if(left < right){
-        int pi = partition(nums,left,right);
-        quick_sort_recursive(nums,left,pi-1);
-        quick_sort_recursive(nums,pi+1,right);
-    }
+	if(left<right){
+		int pi = partition(nums,left,right);
+		quick_sort_recursive(nums,left,pi-1);
+		quick_sort_recursive(nums,pi+1,right);
+	}
 }
 void counting_sort_for_radix(int nums[], int n, int exp, int base){
     int* output = new int[n];

@@ -45,6 +45,10 @@ void merge_sort_recursive(int nums[], int left, int right){
 int partition(int nums[], int left, int right){
     int pi = left + (right - left)/2;
     int i = left, j = left-1;
+
+    swap(nums[pi],nums[right]);
+    pi = right;
+    
     for(;i < right;i++){
         if(nums[i] <= nums[pi]){
             j++;

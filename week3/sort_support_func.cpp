@@ -58,6 +58,10 @@ int partition(int nums[], int left, int right, unsigned long long &countCompare)
 {
     int pi = left + (right - left) / 2;
     int i = left, j = left - 1;
+    
+    swap(nums[pi],nums[right]);
+    pi = right;
+    
     for (; i < (countCompare++, right); i++)
     {
         if (nums[i] <= (countCompare++, nums[pi]))

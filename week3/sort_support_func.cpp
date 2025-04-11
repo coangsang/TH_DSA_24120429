@@ -49,21 +49,21 @@ int partition(int nums[], int left, int right){
     pi = right;
 
     int i = left, j = left-1;
+
+    swap(nums[pi],nums[right]);
+    pi = right;
+    
     for(;i < right;i++){
         if(nums[i] <= nums[pi]){
             j++;
             swap(nums[i],nums[j]);
-        }
-    }
-    swap(nums[j+1],nums[pi]);
-    return j+1;
-}
+
 void quick_sort_recursive(int nums[], int left, int right){
-    if(left < right){
-        int pi = partition(nums,left,right);
-        quick_sort_recursive(nums,left,pi-1);
-        quick_sort_recursive(nums,pi+1,right);
-    }
+	if(left<right){
+		int p = hoarePartition(nums,left,right);
+		quick_sort_recursive(nums,left,p);
+		quick_sort_recursive(nums,p+1,right);
+	}
 }
 void counting_sort_for_radix(int nums[], int n, int exp, int base){
     int* output = new int[n];

@@ -55,6 +55,7 @@ int partition(int nums[], int left, int right){
             swap(nums[i],nums[j]);
         }
     }
+    swap(nums[j+1],nums[pi]);
     return j+1;
 }
 void quick_sort_recursive(int nums[], int left, int right){

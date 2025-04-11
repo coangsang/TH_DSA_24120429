@@ -36,7 +36,7 @@ int main(){
                 clock_t end = clock();
                 double timeTaken = (double)(end - start) / CLOCKS_PER_SEC;
 
-                fprintf(statisticFile,"%d-%s-%f-%d\n",n,typeOfSortName[k],timeTaken,0);
+                fprintf(statisticFile,"%d-%s-%f-%llu\n",n,typeOfSortName[k],timeTaken,0);
             }
             delete[] numsCopy;
             delete[] nums;

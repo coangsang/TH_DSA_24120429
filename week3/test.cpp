@@ -21,7 +21,7 @@ int main()
     for (int i = 0; i < nOfDataOrder; i++)
     {
         fprintf(statisticFile, "Data Order: %s\n", dataOrderName[i]);
-        fprintf(statisticFile, "Data Size-Sort Type-Time Taken-Number of Comparisons\n");
+        fprintf(statisticFile, "Data Size,Sort Type,Time Taken,Number of Comparisons\n");
         for (int j = 0; j < nOfDataSize; j++)
         {
             int n = dataSize[j];
@@ -41,7 +41,7 @@ int main()
                 clock_t end = clock();
                 double timeTaken = (double)(end - start) / CLOCKS_PER_SEC;
 
-                fprintf(statisticFile, "%d-%s-%f-%llu\n", n, typeOfSortName[k], timeTaken, countCompare);
+                fprintf(statisticFile, "%d,%s,%f,%llu\n", n, typeOfSortName[k], timeTaken, countCompare);
             }
             delete[] numsCopy;
             delete[] nums;

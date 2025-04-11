@@ -42,28 +42,18 @@ void merge_sort_recursive(int nums[], int left, int right){
         merge(nums,left,mid,right);
     }
 }
-int hoarePartition(int nums[],int l,int r){
-    int i = l-1;
-    int j = r+1;
-    int m = (l+r)/2;
-    if (nums[l] > nums[m]) swap(nums[l], nums[m]);
-    if (nums[l] > nums[r]) swap(nums[l], nums[r]);
-    if (nums[m] > nums[r]) swap(nums[m], nums[r]);
-    swap(nums[m],nums[l]);
-    int pivot = nums[l];
-    while(true){
-        do{
-            i++;
-        }while(nums[i]<pivot);
-        do{
-            j--;
-        }while(nums[j]>pivot);
-        if(i>=j){
-            return j;
-        }
-        swap(nums[i],nums[j]);
-    }
-}
+int partition(int nums[], int left, int right){
+    int pi = left + (right - left)/2;
+    int i = left, j = left-1;
+
+    swap(nums[pi],nums[right]);
+    pi = right;
+    
+    for(;i < right;i++){
+        if(nums[i] <= nums[pi]){
+            j++;
+            swap(nums[i],nums[j]);
+
 void quick_sort_recursive(int nums[], int left, int right){
 	if(left<right){
 		int p = hoarePartition(nums,left,right);

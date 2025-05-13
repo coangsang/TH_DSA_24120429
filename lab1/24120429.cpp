@@ -16,7 +16,7 @@ bool isValidOperator(string expression, size_t pos_of_operand);
 void removeNegSign(string&a);
 bool isNeg(string a);
 void swapChar(char&a, char&b);
-bool isEmptyQueue(Queue*q);
+
 
 void swapChar(char&a, char&b){
     char temp = a;
@@ -415,6 +415,7 @@ string getTop(const Stack *s){
     }
 }
 
+bool isEmptyQueue(Queue*q);
 //thêm vào đuôi queue
 void enqueue(Queue*&q, string data){
     Node*n = createNode(data);
